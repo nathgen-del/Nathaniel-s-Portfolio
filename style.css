@@ -485,11 +485,14 @@ nav ul {
     color: #ccc;
 }
 
-.videoshowcase {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    margin-top: 100px;
+.videoshowcase iframe {
+    width: 100%;
+    max-width: 300px;
+    aspect-ratio: 9 / 16;
+    border-radius: 20px;
+    border: none;
+    background-color: transparent;
+    /* Prevents white flashes before the video loads */
 }
 
 .videoshowcase div {
