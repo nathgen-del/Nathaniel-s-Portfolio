@@ -27,7 +27,6 @@
     --bg-secondary: whitesmoke;
     --text-primary: white;
     --text-inverse: black;
-    /* Text on whitesmoke */
     --nav-bg: rgba(255, 255, 255, 0.8);
     --nav-text: black;
     --nav-hover: whitesmoke;
@@ -36,26 +35,7 @@
     --card-border: #333;
     --contact-panel: #1a1a1a;
     --btn-bg: #ffffff;
-    /* Mint Green */
     --btn-text: #0c0c0c;
-}
-
-#reset-btn {
-    background-color: transparent;
-    color: var(--text-primary);
-    border: 1px solid var(--text-primary);
-    padding: 12px 24px;
-    font-size: 16px;
-    border-radius: 6px;
-    cursor: pointer;
-    font-family: 'AgrandirRegular', sans-serif;
-    transition: all 0.3s ease;
-    margin-top: 15px;
-}
-
-#reset-btn:hover {
-    background-color: var(--text-primary);
-    color: var(--bg-primary);
 }
 
 [data-theme="cyber"] {
@@ -66,7 +46,6 @@
     --text-inverse: #e0e0e0;
     --nav-bg: rgba(10, 10, 10, 0.9);
     --nav-text: #ffffff;
-    /* Mint green terminal text */
     --nav-hover: #141414;
     --accent-color: #141414;
     --card-bg: #0f0f0f;
@@ -76,7 +55,7 @@
     --btn-text: #ffffff;
 }
 
-/* NEW: The Frame that protects your layout from zoom tearing */
+/* The Frame that protects your layout from zoom tearing */
 .master-container {
     width: 100%;
     max-width: 1920px;
@@ -162,6 +141,14 @@ body {
     transition: background-color 0.5s ease, color 0.5s ease;
 }
 
+/* Base Image Setup */
+img,
+video {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
 header {
     background-color: var(--nav-bg);
     font-family: 'AgrandirRegular';
@@ -231,13 +218,13 @@ nav ul {
 .ALPHABETS {
     font-family: 'AgrandirRegular';
     font-weight: 800;
-    font-size: 80px;
+    font-size: clamp(30px, 5vw, 80px);
+    letter-spacing: clamp(10px, 3vw, 60px);
     text-align: center;
     margin-top: 50px;
-    letter-spacing: 60px;
     margin-bottom: 200px;
     position: relative;
-    left: 50px;
+    left: 0;
     color: var(--accent-color);
     transition: color 0.5s ease;
 }
@@ -288,7 +275,6 @@ nav ul {
 
 .Pic1 {
     width: 1450px;
-    height: 356px;
     display: block;
     margin-left: auto;
     margin-right: auto;
@@ -297,7 +283,7 @@ nav ul {
 
 .NameH1 {
     font-family: 'AgrandirRegular';
-    font-size: 60px;
+    font-size: clamp(32px, 6vw, 60px);
     display: flex;
     justify-content: left;
     margin-top: 100px;
@@ -315,7 +301,8 @@ nav ul {
 
 .BGwhite {
     background-color: var(--bg-secondary);
-    height: 2000px;
+    height: auto;
+    padding-bottom: 100px;
     transition: background-color 0.5s ease;
 }
 
@@ -343,7 +330,7 @@ nav ul {
 
 .CoreSkills {
     font-family: 'AgrandirRegular';
-    font-size: 60px;
+    font-size: clamp(32px, 6vw, 60px);
     text-align: center;
     width: 100%;
     color: var(--text-inverse);
@@ -384,7 +371,6 @@ nav ul {
 
 .Twomagi {
     width: 550px;
-    height: 798px;
     position: absolute;
     margin-top: -1940px;
     margin-left: 1200px;
@@ -393,7 +379,7 @@ nav ul {
 .Projecto,
 .Skills {
     font-family: 'AgrandirRegular';
-    font-size: 60px;
+    font-size: clamp(32px, 6vw, 60px);
     display: flex;
     justify-content: center;
     margin-top: 100px;
@@ -407,18 +393,22 @@ nav ul {
     border-radius: 16px;
 }
 
+/* Responsive CSS Grid for Posters */
 .gallery12 {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    margin-top: 100px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     gap: 40px;
+    margin-top: 100px;
+    width: 90%;
+    max-width: 1400px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .card {
     background-color: transparent;
-    width: 350px;
-    height: 500px;
+    width: 100%;
+    aspect-ratio: 7 / 10;
     perspective: 1000px;
     cursor: pointer;
 }
@@ -461,7 +451,6 @@ nav ul {
 .card-back {
     background: var(--card-bg);
     color: white;
-    /* Keep white for readability on dark cards */
     transform: rotateY(180deg);
     display: flex;
     flex-direction: column;
@@ -485,17 +474,29 @@ nav ul {
     color: #ccc;
 }
 
+/* =========================================================================
+   VIDEO SECTION FIX
+========================================================================= */
+.showcasing {
+    text-align: center;
+    margin-top: 60px;
+    font-size: clamp(32px, 6vw, 60px);
+}
+
 .videoshowcase {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
     margin-top: 80px;
     gap: 15px;
-    /* Adds clean spacing between the videos */
     width: 100%;
     max-width: 1600px;
     margin-left: auto;
     margin-right: auto;
+}
+
+.videoshowcase div {
+    display: flex;
 }
 
 .videoshowcase iframe {
@@ -505,28 +506,12 @@ nav ul {
     border-radius: 20px;
     border: none;
     background-color: transparent;
-    /* Prevents white flashes before the video loads */
 }
 
-.videoshowcase div {
-    margin: 20px;
-    padding: 5px;
-    display: flex;
-}
 
-.videoshowcase video {
-    height: 500px;
-    width: 300px;
-    border-radius: 40px;
-    object-fit: cover;
-}
-
-.showcasing {
-    text-align: center;
-    margin-top: 60px;
-    font-size: 60px;
-}
-
+/* =========================================================================
+   CERTIFICATES
+========================================================================= */
 .certificatebg {
     height: 1200px;
     background-color: var(--bg-secondary);
@@ -604,34 +589,9 @@ nav ul {
     opacity: 1;
 }
 
-.icon {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-width: 40px;
-    min-height: 40px;
-    border-radius: 50%;
-    background-color: rgba(255, 255, 255, 0.2);
-    color: white;
-}
-
-.info {
-    display: flex;
-    flex-direction: column;
-}
-
-.info .main {
-    font-size: 1.2rem;
-    font-weight: bold;
-}
-
-.info .sub {
-    font-size: 0.8rem;
-    opacity: 0.8;
-}
 
 /* =========================================================================
-   CONTACT SECTION (FLEXBOX & THEME CHANGER)
+   CONTACT SECTION 
 ========================================================================= */
 
 .contact-wrapper {
@@ -650,7 +610,6 @@ nav ul {
     align-items: center;
 }
 
-/* Left Side - Form Area */
 .contact-left {
     flex: 1.2;
     background: var(--contact-panel);
@@ -699,7 +658,6 @@ nav ul {
     border-color: #000000;
 }
 
-/* Mint Green Button matching the image */
 #send-btn {
     background-color: var(--btn-bg);
     color: var(--btn-text);
@@ -721,7 +679,24 @@ nav ul {
     transform: scale(0.98);
 }
 
-/* Utility Class for JS logic */
+#reset-btn {
+    background-color: transparent;
+    color: var(--text-primary);
+    border: 1px solid var(--text-primary);
+    padding: 12px 24px;
+    font-size: 16px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-family: 'AgrandirRegular', sans-serif;
+    transition: all 0.3s ease;
+    margin-top: 15px;
+}
+
+#reset-btn:hover {
+    background-color: var(--text-primary);
+    color: var(--bg-primary);
+}
+
 .hidden {
     display: none !important;
 }
@@ -733,6 +708,7 @@ nav ul {
 
 #success-message h3 {
     color: #5ff2c3;
+    /* Mint Green Success Text */
     font-size: 28px;
     margin-bottom: 10px;
 }
@@ -742,7 +718,6 @@ nav ul {
     font-size: 18px;
 }
 
-/* Right Side - Info Text */
 .contact-right {
     flex: 1;
     display: flex;
@@ -763,10 +738,10 @@ nav ul {
     margin-bottom: 10px;
 }
 
+
 /* =========================================================================
    UPDATED: ZOOM IN / MOBILE OVERRIDE 
 ========================================================================= */
-
 @media (max-width: 1400px) {
 
     .bolt1,
@@ -801,10 +776,9 @@ nav ul {
 
     .NameH1 {
         margin-top: 150px;
-        margin-left: 5%;
-        text-align: left;
-        font-size: clamp(35px, 5vw, 45px);
-        top: 0;
+        margin-left: 0;
+        text-align: center;
+        width: 100%;
         margin-bottom: 40px;
         position: relative;
         z-index: 2;
@@ -816,35 +790,20 @@ nav ul {
         right: 5%;
         top: 150px;
         margin: 0;
-        width: clamp(120px, 20vw, 200px);
+        width: 25vw;
+        max-width: 200px;
+        z-index: -1;
     }
 
     .D2 {
         display: block !important;
         position: absolute;
-        right: -5%;
+        right: -5vw;
         top: 220px;
         margin: 0;
-        width: clamp(150px, 30vw, 300px);
+        width: 40vw;
+        max-width: 300px;
         z-index: -1;
-    }
-
-    .Pic1 {
-        width: 95%;
-        height: auto;
-        margin-top: 0;
-    }
-
-    .ALPHABETS {
-        left: 0;
-        letter-spacing: 20px;
-        font-size: 50px;
-        margin-bottom: 100px;
-    }
-
-    .BGwhite {
-        height: auto;
-        padding-bottom: 100px;
     }
 
     .Aboutme {
@@ -898,16 +857,6 @@ nav ul {
         height: auto;
         top: 0;
         left: 0;
-    }
-
-    .Projecto {
-        margin-top: 50px;
-        font-size: clamp(35px, 5vw, 60px);
-        text-align: center;
-    }
-
-    .gallery12 {
-        margin-top: 50px;
     }
 
     .certificatebg {
