@@ -485,6 +485,19 @@ nav ul {
     color: #ccc;
 }
 
+.videoshowcase {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: 80px;
+    gap: 15px;
+    /* Adds clean spacing between the videos */
+    width: 100%;
+    max-width: 1600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
 .videoshowcase iframe {
     width: 100%;
     max-width: 300px;
